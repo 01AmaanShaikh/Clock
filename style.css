@@ -1,0 +1,100 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: rgba(0, 0, 0, 0.7); */
+    min-height: 100vh;
+    min-width: 100vw;
+    color: white;
+    /* -webkit-text-stroke-color: black;
+    -webkit-text-stroke-width: 1px; */
+    /* background: dodgerblue; */
+    background: rgb(17, 167, 167);
+    animation: bgc 1s 0.5s infinite ease;
+}
+
+@keyframes bgc {
+    /* 0% {
+        background: dodgerblue;
+        color: white;
+    } */
+    50% {
+        background: rgb(17, 167, 167);
+        color: white;
+    }
+    100% {
+        background: lightseagreen;
+        color: white;
+    }
+}
+
+.container {
+    position: relative;
+}
+
+.clock {
+    width: 30vw;
+    height: 30vw;
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0.5vw solid white;
+    /* box-shadow: 0vw 0vw 5vw black; */
+    animation: tik 1s 1s infinite ease;
+}
+
+@keyframes tik {
+    0% {
+        box-shadow: 0vw 0vw 5vw white;
+    }
+    100% {
+        box-shadow: 0vw 0vw 5vw black;
+    }
+}
+
+.clock span {
+    position: absolute;
+    transform: rotate(calc(30deg * var(--i)));
+    inset: 2vw;
+    text-align: center;
+    font-size: 2vw;
+}
+
+.clock span b {
+    transform: rotate(calc(-30deg * var(--i)));
+    display: inline-block;
+}
+
+.clock::before {
+    content: '';
+    position: absolute;
+    height: 0.6vw;
+    width: 0.6vw;
+    background: grey;
+    border-radius: 20vw;
+    z-index: 2;
+}
+
+.hand {
+    position: absolute;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.hand i {
+    position: absolute;
+    background: var(--clr);
+    width: 0.4vw;
+    height: var(--h);
+    border-radius: 3vw;
+}
